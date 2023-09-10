@@ -25,8 +25,35 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// Testing the function
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log("Computer's choice:", capitalizeFirstLetter(computerSelection));
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("Choose Rock, Paper, or Scissors:");
+        const computerSelection = getComputerChoice();
+        console.log("Computer's choice:", capitalizeFirstLetter(computerSelection));
+        
+        const result = playRound(playerSelection, computerSelection);
+        console.log(result);
+
+        if (result.includes("win")) {
+            playerScore++;
+        } else if (result.includes("lose")) {
+            computerScore++;
+        }
+    }
+
+    console.log(`Final Score - You: ${playerScore}, Computer: ${computerScore}`);
+    
+    if (playerScore > computerScore) {
+        console.log("Congratulations, you won!");
+    } else if (playerScore < computerScore) {
+        console.log("Sorry, you lost. Better luck next time!");
+    } else {
+        console.log("It's a tie!");
+    }
+}
+
+// Calling the game function to start the game
+game();
