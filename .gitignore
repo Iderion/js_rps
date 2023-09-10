@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Build directory
+/dist
+
+# Environment variables
+.env
+
+# IDE files
+.idea/
+*.swp
