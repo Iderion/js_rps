@@ -30,7 +30,11 @@ function game() {
     let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Choose Rock, Paper, or Scissors:");
+        let playerSelection;
+        do {
+            playerSelection = prompt("Choose Rock, Paper, or Scissors:").toLowerCase();
+        } while (!['rock', 'paper', 'scissors'].includes(playerSelection));
+
         const computerSelection = getComputerChoice();
         console.log("Computer's choice:", capitalizeFirstLetter(computerSelection));
         
@@ -54,6 +58,7 @@ function game() {
         console.log("It's a tie!");
     }
 }
+
 
 // Calling the game function to start the game
 game();
