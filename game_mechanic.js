@@ -4,20 +4,17 @@ function getComputerChoice() {
     return choices[randomIndex];
 }
 
-// Testing the function
-console.log(getComputerChoice());
-
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
+    let playerSelectionLower = playerSelection.toLowerCase();
+    let computerSelectionLower = computerSelection.toLowerCase();
 
-    if (playerSelection === computerSelection) {
-        return "It's a tie!";
+    if (playerSelectionLower === computerSelectionLower) {
+        return "It's a tie! Both selected " + capitalizeFirstLetter(playerSelection);
     }
 
-    if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
-        (playerSelection === 'scissors' && computerSelection === 'paper') ||
-        (playerSelection === 'paper' && computerSelection === 'rock')) {
+    if ((playerSelectionLower === 'rock' && computerSelectionLower === 'scissors') ||
+        (playerSelectionLower === 'scissors' && computerSelectionLower === 'paper') ||
+        (playerSelectionLower === 'paper' && computerSelectionLower === 'rock')) {
         return "You win! " + capitalizeFirstLetter(playerSelection) + " beats " + capitalizeFirstLetter(computerSelection);
     } else {
         return "You lose! " + capitalizeFirstLetter(computerSelection) + " beats " + capitalizeFirstLetter(playerSelection);
@@ -31,4 +28,5 @@ function capitalizeFirstLetter(string) {
 // Testing the function
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
+console.log("Computer's choice:", capitalizeFirstLetter(computerSelection));
 console.log(playRound(playerSelection, computerSelection));
